@@ -1,5 +1,6 @@
 /**
  * 1/11 30min 没问题不过再做一遍叭
+ * 1/17 25min
  * # 学到
  * 1. 用map比较帅嘛 对各个item操作的时候
  * 2. 超时这块的处理真的亮了 避免for中的for
@@ -21,7 +22,7 @@ function solution(N, A) {
   let hash = new Array(N).fill(0)
   let max = 0
   let oldMax = 0
-  A.forEach((item, i) => {
+  A.forEach((item) => {
     if (Number(item) === N + 1) {
       oldMax = max
     } else {
