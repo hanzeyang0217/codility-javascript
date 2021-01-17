@@ -1,17 +1,25 @@
 /**
  * 1/11 20min 有问题
+ * 1/18 5min
  * # 问题
  * 1. 感觉题目有问题
  * 2. 他不是很在乎边界值 只管算法
  * # 学到
  * 1. 能用数学解决的问题用数学解决
+ * 1/18
+ * 1. 实现2行解决问题不过可能不太适合阅读
  */
 function solution(A) {
-  // if (A.length <= 1) return 1
-  let sum = (2 + A.length) * (A.length + 1) / 2
-  A.forEach(i => sum -= i)
-  return sum
+  if (A.length === 0) return 1
+  return (2 + A.length) * (A.length + 1) / 2 - A.reduce((a, b) => a + b)
 }
+
+// function solution(A) {
+//   // if (A.length <= 1) return 1
+//   let sum = (2 + A.length) * (A.length + 1) / 2
+//   A.forEach(i => sum -= i)
+//   return sum
+// }
 
 //确实上面这个最好
 //下面这个先排序 再挑出来可以是可以不过没上面好
