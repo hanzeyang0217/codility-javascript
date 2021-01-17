@@ -15,14 +15,14 @@ function solution(A) {
 
 //确实上面这个最好
 //下面这个先排序 再挑出来可以是可以不过没上面好
-function solution(A) {
-  if (A.length === 0) return 1
-  A.sort((a, b) => a - b)
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] !== i + 1) return i + 1
-  }
-  return A.length + 1
-}
+// function solution(A) {
+//   if (A.length === 0) return 1
+//   A.sort((a, b) => a - b)
+//   for (let i = 0; i < A.length; i++) {
+//     if (A[i] !== i + 1) return i + 1
+//   }
+//   return A.length + 1
+// }
 
 
 solution([]) //1
