@@ -1,4 +1,18 @@
 /**
+ * 1/19 10min
+ **/
+function solution(A) {
+  let min = {
+    value: Infinity,
+    position: 0
+  }
+  for (let i = 1; i < A.length; i++) {
+    if (min.value > (A[i - 1] + A[i]) / 2) min = {value: (A[i - 1] + A[i]) / 2, position: i - 1}
+    if (min.value > (A[i - 1] + A[i] + A[i + 1]) / 3) min = {value: (A[i - 1] + A[i] + A[i + 1]) / 3, position: i - 1}
+  }
+  return min.position
+}
+/**
  * 好难
  * # 想法1
  * 1. 切两刀
@@ -33,22 +47,23 @@
 //   })[0].index
 // }
 
-function solution(A) {
-  let min = Infinity
-  let position
-  for (let i = 1; i < A.length; i++) {
-    if (min > (A[i - 1] + A[i]) / 2) {
-      min = (A[i - 1] + A[i]) / 2
-      position = i - 1
-    }
-    if (min > (A[i - 1] + A[i] + A[i + 1]) / 3) {
-      min = (A[i - 1] + A[i] + A[i + 1]) / 3
-      position = i - 1
-    }
-  }
-  return position
-}
+// function solution(A) {
+//   let min = Infinity
+//   let position
+//   for (let i = 1; i < A.length; i++) {
+//     if (min > (A[i - 1] + A[i]) / 2) {
+//       min = (A[i - 1] + A[i]) / 2
+//       position = i - 1
+//     }
+//     if (min > (A[i - 1] + A[i] + A[i + 1]) / 3) {
+//       min = (A[i - 1] + A[i] + A[i + 1]) / 3
+//       position = i - 1
+//     }
+//   }
+//   return position
+// }
 
 solution([4, 2, 2, 5, 1, 5, 8]) //1
 // solution([1, 2, 3, 4, 5, 6, 7]) //0
-// solution([10000, -10000]) //1
+// solution([10000, -10000]) //0
+// solution([-3, -5, -8, -4, -10]) //2
