@@ -1,5 +1,6 @@
 /**
  * 1/19 5min
+ * 1/19 5min
 **/
 //第一版 数据对的 但是O(N ** 2)
 // function solution(A) {

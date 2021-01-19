@@ -1,5 +1,6 @@
 /**
  * 1/19 10min
+ * 1/19 5min
  **/
 function solution(A) {
   let min = {
