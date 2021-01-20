@@ -2,6 +2,7 @@
  * 啊哈 秒了
  * 1/19 5+20min
  * 1/19 5min
+ * 1/20 3min
  **/
 // function solution(A) {
 //   return Array.from(new Set(A)).length
