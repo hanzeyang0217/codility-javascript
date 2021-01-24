@@ -4,6 +4,13 @@
  * # 学到
  * 1. hash和sort真好用
  */
+function solution(A) {
+  const hash = new Array(A.length).fill(false)
+  A.forEach(i => {
+    if (!hash[i - 1]) hash[i - 1] = true
+  })
+  return hash.indexOf(false) === -1 ? 1 : 0
+}
 /**
  * # 想法1 => 阔以
  * 1. 排序
@@ -29,13 +36,7 @@
 //   return sum === 0 ? 1 : 0
 // }
 
-function solution(A) {
-  const hash = new Array(A.length).fill(false)
-  A.forEach(i => {
-    if (!hash[i - 1]) hash[i - 1] = true
-  })
-  return hash.indexOf(false) === -1 ? 1 : 0
-}
+
 
 solution([4, 1, 3, 2]) //1
 solution([4, 1, 3]) //0

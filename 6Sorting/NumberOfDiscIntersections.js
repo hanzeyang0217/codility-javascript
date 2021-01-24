@@ -4,6 +4,7 @@
  * 1/20 20min
  * 1/20 2h
  * 1/22 10 min
+ * 1/23 15 min
  * 他这个思路就是通过提前的排序加上之后的break让O小了一点
  * 从O(n**2) => O(N*log(N))
  * 困了 明天看看有啥更好的不
@@ -16,23 +17,28 @@
  * @param A
  */
 function solution(A) {
-  let circleEndpoints = []
-  A.forEach((i, index) => {
-    circleEndpoints.push([index - i, -1])
-    circleEndpoints.push([index + i, 1])
+  /**
+   * 0. 先遍历把进点和出点做出数组
+   * 1. 排序 x从小到大 先进后出
+   * 2. 遍历 计数
+   */
+  const stack = []
+  A.forEach((item, index) => {
+    stack.push([index - item, -1])
+    stack.push([index + item, 1])
   })
-  circleEndpoints.sort((a, b) => a[0] - b[0] === 0 ? a[1] - b[1] : a[0] - b[0])
-  let openCircles = 0
-  let intersections = 0
-  circleEndpoints.forEach(i => {
-    if (i[1] === -1) {
-      intersections += openCircles
-      openCircles++
-    } else {
-      openCircles--
+  stack.sort(([posA, keyA], [posB, keyB]) => posA - posB === 0 ? keyA - keyB : posA - posB)
+  let inC = 0
+  let c = 0
+  stack.forEach(([pos, key]) => {
+    if (key === -1) {
+      c += inC
+      inC++
+    } else if (key === 1) {
+      inC--
     }
   })
-  return intersections > 10000000 ? -1 : intersections
+  return c > 10000000 ? -1 : c
 }
 
 // solution([1, 0, 1,0])//4

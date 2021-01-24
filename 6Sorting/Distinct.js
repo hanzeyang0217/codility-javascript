@@ -3,6 +3,8 @@
  * 1/19 5+20min
  * 1/19 5min
  * 1/20 3min
+ * 1/24 10min
+ * # 重点 hash 新开门的计数就好
  **/
 // function solution(A) {
 //   return Array.from(new Set(A)).length
