@@ -1,6 +1,7 @@
 /**
  * 1/24 20min
  * 1/25 15min
+ * 1/27 10min
  * #重点
  * 1. 一开始排序
  * 2. index保存了一下
@@ -9,7 +10,6 @@
  * @returns {number}
  */
 function solution(A) {
-  if (A.length === 1) return 0
   const hash = []
   let pos = -1
   A.forEach((i, index) => {
@@ -17,8 +17,8 @@ function solution(A) {
       hash[i] = 1
     } else {
       hash[i]++
-      if (hash[i] > A.length / 2) pos = index
     }
+    if (hash[i] > A.length / 2) pos = index
   })
   return pos
 }

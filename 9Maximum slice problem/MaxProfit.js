@@ -1,6 +1,7 @@
 /**
  * 1/25 10min
  * 1/26 20min
+ * 1/27 10min
  * # 这个貌似好多次了 习惯习惯
  * @param A
  * @returns {number}
@@ -12,13 +13,14 @@ function solution(A) {
    * 每次那当日去减 找到最大差额
    * @type {number}
    */
-  let transaction = 0
   let min = Infinity
-  for (let i = 1; i < A.length; i++) {
-    min = Math.min(min, A[i - 1])
-    transaction = Math.max(transaction, A[i] - min)
+  let money = 0
+  for (let i = 0; i < A.length; i++) {
+    min = Math.min(min, A[i])
+    money = Math.max(money, A[i] - min)
   }
-  return transaction
+  return money
+
 }
 
 // function solution(A) {
