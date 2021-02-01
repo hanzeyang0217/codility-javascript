@@ -4,7 +4,9 @@
  * 1/19 5min
  * 1/20 3min
  * 1/24 10min
+ * 2/1  5min 新的想法又是w
  * # 重点 hash 新开门的计数就好
+ *
  **/
 // function solution(A) {
 //   return Array.from(new Set(A)).length
@@ -14,15 +16,22 @@
 //push叭
 //啊 加个计数器就好了嘛...
 function solution(A) {
-  const hash = []
-  let c = 0
-  A.forEach((i) => {
-    if (!hash[i]) {
-      hash[i] = true
-      c++
-    }
+  const hash = {}
+  A.forEach(i=>{
+    if (hash[i]===undefined)hash[i]=true
   })
-  return c
+  return Object.keys(hash).length
 }
+// function solution(A) {
+//   const hash = []
+//   let c = 0
+//   A.forEach((i) => {
+//     if (!hash[i]) {
+//       hash[i] = true
+//       c++
+//     }
+//   })
+//   return c
+// }
 
 solution([2, 1, 1, 2, 3, 1])//3
