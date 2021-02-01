@@ -1,6 +1,7 @@
 /**
  * 1/22 15min 不过我限制了入口 答案没有限制 他那种也写一下叭
  * 1/23 15min
+ * 2/1  10min
  * @param S
  * @returns {number}
  */
@@ -8,15 +9,16 @@
 function solution(S) {
   const stackList = []
   const outStack = ["()", "{}", "[]"]
-  for (let i=0; i<S.length; i++) {
-    if (outStack.indexOf(stackList[stackList.length - 1] + S[i])!==-1){
+  for (let i = 0; i < S.length; i++) {
+    if (outStack.indexOf(stackList[stackList.length - 1] + S[i]) !== -1) {
       stackList.pop()
-    }else{
+    } else {
       stackList.push(S[i])
     }
   }
   return stackList.length === 0 ? 1 : 0
 }
+
 // function solution(S) {
 //   S = Array.from(S)
 //   const inStack = ["{", "[", "("]
