@@ -1,16 +1,33 @@
 /**
  * 1/17 20min
+ * 2/1  10min 哇现在已经可以写出这种神经病代码啦w
  **/
-//不开心没想通 为啥这个费效率...
 function solution(S, P, Q) {
-  const obj = {
-    A: 1,
-    C: 2,
-    G: 3,
-    T: 4,
-  }
-  return P.map((item, i) => Array.from(new Set(Array.from(S).map(i => obj[i]).slice(item, Q[i] + 1))).sort((a, b) => a - b)[0])
+  return P.map((item, index) => {
+    return S.slice(item, Q[index] + 1)
+  }).map(i => {
+    if (i.indexOf("A") !== -1) {
+      return 1
+    } else if (i.indexOf("C") !== -1) {
+      return 2
+    } else if (i.indexOf("G") !== -1) {
+      return 3
+    } else if (i.indexOf("T") !== -1) {
+      return 4
+    }
+  })
 }
+
+//不开心没想通 为啥这个费效率...
+// function solution(S, P, Q) {
+//   const obj = {
+//     A: 1,
+//     C: 2,
+//     G: 3,
+//     T: 4,
+//   }
+//   return P.map((item, i) => Array.from(new Set(Array.from(S).map(i => obj[i]).slice(item, Q[i] + 1))).sort((a, b) => a - b)[0])
+// }
 
 //大佬的逼格更高 模仿一下
 // function solution(S, P, Q) {

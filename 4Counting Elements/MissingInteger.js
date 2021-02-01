@@ -1,17 +1,27 @@
 /**
  * 1/11 10min 没问题不过再来一遍叭
  * 1/17 20min
+ * 2/1  15min
  * # 学到
  * 1. hash
  * 1/17
  * 1. 实现3行解决问题不过可能不太适合阅读
  */
-
 function solution(A) {
-  const hash = new Array(A.length).fill(false)
-  A.forEach(i => {if ((i >= 0) && (!hash[i - 1])) hash[i - 1] = true})
-  return hash.indexOf(false) === -1 ? hash.length + 1 : hash.indexOf(false) + 1
+  const hash = new Array(A.length + 1).fill(0)
+  for (let i = 0; i < A.length; i++) {
+    if (hash[A[i] - 1] === 0) {
+      hash[A[i] - 1]++
+    }
+
+  }
+  return hash.indexOf(0) + 1
 }
+// function solution(A) {
+//   const hash = new Array(A.length).fill(false)
+//   A.forEach(i => {if ((i >= 0) && (!hash[i - 1])) hash[i - 1] = true})
+//   return hash.indexOf(false) === -1 ? hash.length + 1 : hash.indexOf(false) + 1
+// }
 
 // function solution(A) {
 //   A = Array.from(new Set(A))

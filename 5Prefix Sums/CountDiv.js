@@ -1,5 +1,7 @@
 /*
 * 题目莫名其妙 先pass
+* 2/1 20min
+* 妈的什么题啊
 **/
 function solution(A, B, K) {
   return Math.floor(B / K) - Math.floor((A - 1) / K)
