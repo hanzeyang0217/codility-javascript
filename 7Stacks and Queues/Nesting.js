@@ -3,6 +3,7 @@
  * 1/24 10min
  * 1/25 10min
  * 1/27 5min
+ * 2/2  2min
  * @param S
  * @returns {number}
  */

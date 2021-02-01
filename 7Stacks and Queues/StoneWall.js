@@ -3,6 +3,7 @@
  * 1/24 1h
  * 1/25 15min 俺这次是做减法 因为相同的时候才可以共用嘛 所以减减 然后第一个肯定是一块嘛 一开始就取了length 其实多了一个 到时候会自己减掉
  * 1/27 18min 还是减法习惯
+ * 2/2  15min
  * # 重点
  * 1. 弹栈的地方的逻辑
  * 2. 以及从大到小之后的break 好吧其实就是一个while
@@ -10,27 +11,47 @@
  * @returns {number}
  */
 function solution(H) {
-  const wall = []
-  let count = H.length
-  H.forEach((i) => {
-    if (wall.length === 0) {
-      wall.push(i)
-    } else {
-      for (let j = wall.length - 1; j >= 0; j--) {
-        if (wall[j] > i) {
-          wall.pop()
-        } else if (wall[j] === i) {
-          count--
-          break
-        } else {
-          break
-        }
+  let sum = H.length
+  const stack = [H[0]]
+  for (let i = 1; i < H.length; i++) {
+    for (let j = stack.length - 1; j >= 0; j--) {
+      if (stack[j] > H[i]) {
+        stack.pop()
+      } else {
+        break
       }
-      wall.push(i)
     }
-  })
-  return count
+    if (stack[stack.length - 1] === H[i]) {
+      sum--
+    } else {
+      stack.push(H[i])
+    }
+  }
+  return sum
 }
+
+// function solution(H) {
+//   const wall = []
+//   let count = H.length
+//   H.forEach((i) => {
+//     if (wall.length === 0) {
+//       wall.push(i)
+//     } else {
+//       for (let j = wall.length - 1; j >= 0; j--) {
+//         if (wall[j] > i) {
+//           wall.pop()
+//         } else if (wall[j] === i) {
+//           count--
+//           break
+//         } else {
+//           break
+//         }
+//       }
+//       wall.push(i)
+//     }
+//   })
+//   return count
+// }
 // function solution(H) {
 //   let stack = []
 //   let r = 0
