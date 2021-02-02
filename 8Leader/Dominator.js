@@ -2,6 +2,7 @@
  * 1/24 20min
  * 1/25 15min
  * 1/27 10min
+ * 2/2  10min
  * #重点
  * 1. 一开始排序
  * 2. index保存了一下
@@ -10,18 +11,32 @@
  * @returns {number}
  */
 function solution(A) {
+  if (A.length === 1) return 0
   const hash = []
-  let pos = -1
-  A.forEach((i, index) => {
-    if (hash[i] === undefined) {
-      hash[i] = 1
+  for (let i = 0; i < A.length; i++) {
+    if (hash[A[i]] === undefined) {
+      hash[A[i]] = 1
     } else {
-      hash[i]++
+      hash[A[i]]++
+      if (hash[A[i]] > A.length / 2) return i
     }
-    if (hash[i] > A.length / 2) pos = index
-  })
-  return pos
+  }
+  return -1
 }
+
+// function solution(A) {
+//   const hash = []
+//   let pos = -1
+//   A.forEach((i, index) => {
+//     if (hash[i] === undefined) {
+//       hash[i] = 1
+//     } else {
+//       hash[i]++
+//     }
+//     if (hash[i] > A.length / 2) pos = index
+//   })
+//   return pos
+// }
 // function solution(A) {
 //   if (A.length === 1) return 0
 //   let dominator = {
