@@ -3,6 +3,7 @@
  * 1/29 2min => 10min 好吧基础 去习惯叭
  * 2/2  10min 就是除了平方那个以外都count2嘛
  * 2/3  5min
+ * 2/6  5min
  */
 function solution(N) {
   let count = 0
